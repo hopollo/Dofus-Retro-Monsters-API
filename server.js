@@ -36,7 +36,10 @@ app.get("/v1/name/:name", (req, res) => {
 });
 
 app.get("/v1/monsters", (req, res) => {
-  res.status(200).json("./monsters.json");
+  readFile(filePath, 'utf-8', (err, data) => {
+    if (err) return res.status(500);
+    res.status(200).json(JSON.parse(data));
+  });
 });
 
 app.get("/v1/update/:code", async (req, res) => {
