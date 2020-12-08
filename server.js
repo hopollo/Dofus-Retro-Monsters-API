@@ -20,7 +20,10 @@ app.get("/v1/id/:id", (req, res) => {
 });
 
 app.get("/v1/name/:name", (req, res) => {
-  const name = req.params.name;
+  const name = req.params.name.toLowerCase()
+  .split(' ')
+  .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+  .join(' ');
 
   readFile(filePath, (err, data) => {
     if (err) return console.error(err);
