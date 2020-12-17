@@ -1,12 +1,16 @@
 require('dotenv').config();
-const app = require("express")();
+const express = require('express');
+const app = express();
 const { readFile, writeFile } = require("fs");
 const fetch = require("node-fetch");
 
 const PORT = process.env.PORT || 8080;
+
 const filePath = "./monsters.json";
 
 let updating = false;
+
+app.use(express.static('public'));
 
 app.get("/v1/id/:id", (req, res) => {
   const id = req.params.id;
@@ -90,15 +94,7 @@ app.get("/v1/update/:code", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  const html = `
-    <h1>Bienvenue sur l'api Bestiaire Dofus Retro by <a href="https://hopollo.netlify.app">@HoPolloTV</a></h1>
-    <h3>Utilisation : </h3>
-    <h4>/v1/id/:id - Gets monster by ID</h4>
-    <h4>/v1/name/:name - Gets monster by Name</h4>
-    <h4>/v1/monsters - Gets all monsters as JSON </h4>
-    <h5>json response of your search will be sent back to you, GLHF</h5>
-    `;
-  res.send(html);
+  res.send('index.html');
 });
 
 app.listen(PORT, () => console.log(`Running : http://localhost:${PORT}/`));
