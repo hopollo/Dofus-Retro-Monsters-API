@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HplDofusRetroApi</title>
+  <title>HplDofusRetroMonstersApi</title>
 </head>
 <body>
-  <h1>Bienvenue sur l'api Bestiaire Dofus Retro by <a href="https://hopollo.netlify.app">@HoPolloTV</a></h1>
-    <h3>Utilisation : </h3>
-    <h4>/v1/id/:id - Gets monster by ID</h4>
-    <h4>/v1/name/:name - Gets monster by Name</h4>
+  <h1>Dofus Retro Monsters API by <a href="https://hopollo.netlify.app">@HoPolloTV</a></h1>
+    <h3>Usage : </h3>
+    <h4><a href="/v1/id/">/v1/id/:id</a> - Gets monster by ID</h4>
+    <h4><a href="/v1/name/">/v1/name/:name</a> - Gets monster by Name</h4>
     <h4><a href="/v1/monsters">/v1/monsters</a> - Gets all monsters as JSON </h4>
-    <h5>json response of your search will be sent back to you, GLHF</h5>
+    <h5 style="text-align: center;">json response will be sent back to you, GLHF</h5>
     
-    <div class="preview-container" style="border: 2px solid black; border-radius: 15px; background: #dacaa6; color: black; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-      <label style="font-weight: bold;">Try Me !</label>
+    <form class="preview-container" style="border: 2px solid black; border-radius: 15px; background: #dacaa6; color: black; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+      <label style="font-weight: bold;">Try ! (FR names only atm)</label>
       <input id="search" name="search" placeholder="nom du monstre">
       <div class="results" style="display: flex; justify-content: space-around; width: 100%;">
         <img class="imgResult" style="max-height: 150px;">
         <p class="jsonResult"></p>
       </div>
-    </div>
+    </form>
 
     <script src="/js/preview.js" defer></script>
 
